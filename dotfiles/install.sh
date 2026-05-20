@@ -28,6 +28,7 @@ brew install --cask nikitabobko/tap/aerospace
 
 echo ""
 echo "Installing Borders..."
+brew tap FelixKratz/formulae
 brew install borders
 
 # -----------------------------
