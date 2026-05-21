@@ -39,20 +39,85 @@ echo "Creating ~/.config directory..."
 mkdir -p ~/.config
 
 # -----------------------------
-# Copy aerospace config
+# Setup selection
 # -----------------------------
 echo ""
-echo "Copying AeroSpace config..."
+echo "Choose configuration setup method:"
+echo ""
+echo "1) Create symlink"
+echo "   - Edits reflect in both repo and config"
+echo "   - Recommended for dotfiles management"
+echo ""
+echo "2) Copy files"
+echo "   - Repo and config become separate files"
+echo "   - Editing one will NOT update the other"
+echo ""
 
+read -p "Enter choice (1 or 2): " choice
+
+# -----------------------------
+# AeroSpace config setup
+# -----------------------------
 mkdir -p ~/.config/aerospace
 
-cp -R ./.config/aerospace/* ~/.config/aerospace/
+REPO_PATH="$(pwd)/.config/aerospace/aerospace.toml"
+CONFIG_PATH="$HOME/.config/aerospace/aerospace.toml"
+
+if [ "$choice" = "1" ]; then
+
+    echo ""
+    echo "Creating symlink..."
+    echo ""
+
+    # Remove existing config if present
+    rm -f "$CONFIG_PATH"
+
+    ln -s "$REPO_PATH" "$CONFIG_PATH"
+
+    echo ""
+    echo "Symlink created:"
+    echo "$CONFIG_PATH -> $REPO_PATH"
+
+elif [ "$choice" = "2" ]; then
+
+    echo ""
+    echo "Copying config files..."
+    echo ""
+
+    cp -R ./.config/aerospace/* ~/.config/aerospace/
+
+    echo ""
+    echo "Files copied successfully."
+
+else
+    echo ""
+    echo "Invalid choice."
+    exit 1
+fi
 
 echo ""
 echo "======================================"
 echo " Setup Complete!"
 echo "======================================"
 
+# -----------------------------
+# Start AeroSpace
+# -----------------------------
 echo ""
-echo "Start AeroSpace manually once:"
-echo "open -a AeroSpace"
+read -p "Do you want to start AeroSpace now? (y/n): " start_choice
+
+if [[ "$start_choice" =~ ^[Yy]$ ]]; then
+
+    echo ""
+    echo "Starting AeroSpace..."
+
+    open -a AeroSpace
+
+else
+
+    echo ""
+    echo "You can start AeroSpace manually using:"
+    echo ""
+    echo "open -a AeroSpace"
+
+fi
