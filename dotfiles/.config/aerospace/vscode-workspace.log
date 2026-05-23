@@ -1,0 +1,76 @@
+==================================
+Script triggered at: Sat May 23 16:09:54 IST 2026
+VSCode window count:        0
+
+All windows:
+2066 | Arc             | The Hardest Trackmania Challenge I've Attempted
+3674 | Brave Browser   | AeroSpace VSCode Workspace Logic - Brave
+7209 | Code            | aerospace
+3792 | Code            | aerospace.toml — twm
+4885 | Finder          | Downloads
+6519 | System Settings | Software Update
+2085 | Telegram        | Telegram @ Achadan
+2312 | Warp            | ..ny@Alexs-MacBook-Pro:~
+1485 | ‎WhatsApp       | ‎WhatsApp
+
+Not enough VSCode windows. No action taken.
+Script finished.
+
+==================================
+Script triggered at: Sat May 23 16:11:19 IST 2026
+VSCode window count:        2
+
+All windows:
+2066 | Arc             | The Hardest Trackmania Challenge I've Attempted
+3674 | Brave Browser   | AeroSpace VSCode Workspace Logic - Brave
+7209 | Code            | aerospace
+3792 | Code            | vscode-workspace.sh — twm
+4885 | Finder          | Downloads
+6519 | System Settings | Software Update
+2085 | Telegram        | Telegram @ Achadan
+2312 | Warp            | ..ny@Alexs-MacBook-Pro:~
+1485 | ‎WhatsApp       | ‎WhatsApp
+
+More than one VSCode window detected.
+Moving focused window to workspace B...
+Move command executed.
+Script finished.
+
+==================================
+Script triggered at: Sat May 23 16:12:58 IST 2026
+VSCode window count:        2
+
+All windows:
+2066 | Arc           | The Hardest Trackmania Challenge I've Attempted
+3674 | Brave Browser | AeroSpace VSCode Workspace Logic - Brave
+7244 | Code          | Welcome
+3792 | Code          | aerospace.toml — twm
+4885 | Finder        | Downloads
+2085 | Telegram      | Telegram @ Achadan
+2312 | Warp          | ..ny@Alexs-MacBook-Pro:~
+1485 | ‎WhatsApp     | ‎WhatsApp
+
+More than one VSCode window detected.
+Moving focused window to workspace B...
+Move command executed.
+Script finished.
+
+==================================
+Script triggered at: Sat May 23 16:20:48 IST 2026
+VSCode window count:        2
+
+All windows:
+2066 | Arc           | The Hardest Trackmania Challenge I've Attempted
+3674 | Brave Browser | AeroSpace VSCode Workspace Logic - Brave
+7306 | Code          | Visual Studio Code
+3792 | Code          | setup_permissions.sh — twm
+4885 | Finder        | Downloads
+2085 | Telegram      | Telegram @ Achadan
+2312 | Warp          | ..ny@Alexs-MacBook-Pro:~
+1485 | ‎WhatsApp     | ‎WhatsApp
+
+More than one VSCode window detected.
+Moving focused window to workspace B...
+Move command executed.
+Script finished.
+

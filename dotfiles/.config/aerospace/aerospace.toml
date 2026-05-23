@@ -76,7 +76,7 @@ alt-a = 'workspace A'
 alt-d = 'workspace D'
 alt-p = 'workspace P'
 alt-v = 'workspace V'
-# alt-b = 'workspace B'
+alt-b = 'workspace B'
 # alt-c = 'workspace C'
 # alt-e = 'workspace E'
 # alt-f = 'workspace F'
@@ -106,7 +106,7 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 # alt-shift-a = 'move-node-to-workspace A'
-# alt-shift-b = 'move-node-to-workspace B'
+alt-shift-b = ['move-node-to-workspace B', 'workspace B']
 # alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-d = 'move-node-to-workspace D'
 # alt-shift-e = 'move-node-to-workspace E'
@@ -146,6 +146,9 @@ f = [
     'layout floating tiling',
     'mode main',
 ] # Toggle between floating and tiling layout
+# this is a custom script that creates a vscode workspace with the current windows,
+# and opens vscode with that workspace. It's very useful to quickly open vscode with the current windows as the workspace.
+v = ['exec-and-forget /Users/alexantony/.config/aerospace/scripts/vscode-workspace.sh', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
@@ -196,4 +199,5 @@ run = "move-node-to-workspace D"
 9 = ['secondary', 'main']
 
 V = ['secondary', 'main']
+B = ['secondary', 'main']
 P = ['secondary', 'main']
