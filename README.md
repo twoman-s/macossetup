@@ -1,9 +1,11 @@
 # Mac Tiling Window Manager Dotfiles
 
-Personal macOS tiling window manager setup using:
+Personal macOS setup using:
 
 - AeroSpace
 - Borders
+- gh-dash
+- delta
 
 ---
 
@@ -26,10 +28,10 @@ dotfiles/
 ├── install.sh
 ├── install_scripts/
 │   ├── check_homebrew.sh
-│   ├── install_packages.sh
-│   ├── setup_config.sh
-│   ├── setup_permissions.sh
-│   └── start_aerospace.sh
+│   ├── aerospace/
+│   │   └── install.sh
+│   └── gh-dash/
+│       └── install.sh
 │
 └── .config/
     ├── aerospace/
@@ -38,23 +40,22 @@ dotfiles/
     │   └── scripts/
     │       └── vscode-workspace.sh
     │
-    └── other-configs/
+    └── gh-dash/
+        └── config.yml
 ```
 
 ---
 
 # What Each File Does
 
-## Root Scripts
+## Installer Scripts
 
 | File | Purpose |
 |---|---|
-| `install.sh` | Main installer entry point |
-| `install_scripts/check_homebrew.sh` | Verifies Homebrew installation |
-| `install_scripts/install_packages.sh` | Installs AeroSpace + Borders |
-| `install_scripts/setup_config.sh` | Handles symlink/copy setup |
-| `install_scripts/setup_permissions.sh` | Makes scripts executable |
-| `install_scripts/start_aerospace.sh` | Starts AeroSpace after setup |
+| `install.sh` | Main entry point — discovers configs and prompts for selection |
+| `install_scripts/check_homebrew.sh` | Verifies Homebrew is installed |
+| `install_scripts/aerospace/install.sh` | Installs AeroSpace + Borders, sets up config, starts app |
+| `install_scripts/gh-dash/install.sh` | Installs gh + delta + gh-dash, handles GitHub auth, sets up config |
 
 ---
 
@@ -68,16 +69,15 @@ dotfiles/
 
 ---
 
-# Setup Methods
+## gh-dash Config Files
 
-You can configure this setup in two ways:
-
-1. Automatic setup using `install.sh`
-2. Manual setup using symlinks
+| File | Purpose |
+|---|---|
+| `.config/gh-dash/config.yml` | gh-dash dashboard configuration |
 
 ---
 
-# Method 1 — Automatic Setup (Recommended)
+# Setup
 
 Run:
 
@@ -88,61 +88,85 @@ chmod +x install.sh
 
 The installer will:
 
-- Install AeroSpace
-- Install Borders
-- Create `~/.config`
-- Setup symlinks OR copy configs
-- Make scripts executable
-- Optionally start AeroSpace
+1. Check that Homebrew is installed
+2. Scan the `.config/` folder and list all available configurations
+3. Prompt you to select which ones to install
+4. Run only the selected installers
+
+---
+
+# Adding a New Configuration
+
+The installer is fully dynamic — it reads the `.config/` folder at runtime.
+
+To add a new configuration:
+
+1. Create `.config/<name>/` with your config files
+2. Create `install_scripts/<name>/install.sh` with the install logic
+
+It will automatically appear as an option next time you run `install.sh`.
+
+---
+
+# Configurations
+
+## AeroSpace
+
+Installs:
+
+- [AeroSpace](https://github.com/nikitabobko/AeroSpace) — tiling window manager
+- [Borders](https://github.com/FelixKratz/JankyBorders) — window border highlight
+
+After installation, optionally starts AeroSpace immediately.
+
+---
+
+## gh-dash
+
+Installs:
+
+- [gh](https://cli.github.com) — GitHub CLI
+- [delta](https://github.com/dandavison/delta) — syntax-highlighting pager for git diffs
+- [gh-dash](https://github.com/dlvhdr/gh-dash) — terminal GitHub dashboard
+
+Prompts for `gh auth login` during setup.
+
+> **Note:** After installation, also run manually:
+> ```bash
+> gh extension install dlvhdr/gh-dash
+> ```
 
 ---
 
 # Symlink vs Copy Mode
 
-During installation you can choose:
+During each configuration install you can choose:
 
 ## 1) Symlink Mode (Recommended)
 
-Creates symlinks for everything inside:
+Creates a symlink pointing `~/.config/<name>` directly to the repo:
 
 ```text
-dotfiles/.config/
-```
-
-This means:
-
-```text
-~/.config/aerospace
-```
-
-points directly to:
-
-```text
-dotfiles/.config/aerospace
+~/.config/aerospace  →  dotfiles/.config/aerospace
+~/.config/gh-dash    →  dotfiles/.config/gh-dash
 ```
 
 Benefits:
 
-- Changes sync instantly
-- Easy GitHub workflow
-- Future files automatically work
+- Changes in the repo reflect immediately
+- Easy to manage via Git
 - Best for dotfiles management
 
 ---
 
 ## 2) Copy Mode
 
-Copies all config files into:
-
-```text
-~/.config
-```
+Copies config files into `~/.config/<name>`.
 
 Benefits:
 
-- Independent configs
+- Independent from the repo
 - Safer for experimentation
-- Repo and system configs separated
 
 Drawback:
 
