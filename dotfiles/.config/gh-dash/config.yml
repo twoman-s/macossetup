@@ -92,7 +92,7 @@ theme:
             showSeparator: true
             compact: false
 pager:
-    diff: ""
+    diff: "delta --side-by-side --color=always"
 confirmQuit: false
 showAuthorIcons: true
 smartFilteringAtLaunch: true
