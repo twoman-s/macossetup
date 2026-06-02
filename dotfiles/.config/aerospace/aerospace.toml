@@ -37,8 +37,11 @@ inner.horizontal = 5
 inner.vertical = 5
 outer.left = 5
 outer.bottom = 5
-outer.top = 5
 outer.right = 5
+outer.top = [
+    { monitor.main = 0 },
+    40
+]
 
 [mode.main.binding]
 
@@ -148,7 +151,7 @@ f = [
 ] # Toggle between floating and tiling layout
 # this is a custom script that creates a vscode workspace with the current windows,
 # and opens vscode with that workspace. It's very useful to quickly open vscode with the current windows as the workspace.
-v = ['exec-and-forget /Users/alexantony/.config/aerospace/scripts/vscode-workspace.sh', 'mode main']
+v = ['exec-and-forget $HOME/.config/aerospace/scripts/vscode-workspace.sh', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
