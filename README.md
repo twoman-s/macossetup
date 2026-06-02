@@ -4,6 +4,7 @@ Personal macOS setup using:
 
 - AeroSpace
 - Borders
+- SketchyBar
 - gh-dash
 - delta
 
@@ -30,7 +31,9 @@ dotfiles/
 │   ├── check_homebrew.sh
 │   ├── aerospace/
 │   │   └── install.sh
-│   └── gh-dash/
+│   ├── gh-dash/
+│   │   └── install.sh
+│   └── sketchybar/
 │       └── install.sh
 │
 └── .config/
@@ -40,8 +43,32 @@ dotfiles/
     │   └── scripts/
     │       └── vscode-workspace.sh
     │
-    └── gh-dash/
-        └── config.yml
+    ├── gh-dash/
+    │   └── config.yml
+    │
+    └── sketchybar/
+        ├── sketchybarrc
+        ├── scripts/
+        │   └── colors.sh
+        ├── items/
+        │   ├── aerospace.sh
+        │   ├── battery.sh
+        │   ├── calendar.sh
+        │   ├── cpu.sh
+        │   ├── display_change.sh
+        │   ├── front_app.sh
+        │   ├── ram.sh
+        │   └── volume.sh
+        └── plugins/
+            ├── aerospace.sh
+            ├── battery.sh
+            ├── calendar.sh
+            ├── cpu.sh
+            ├── display_change.sh
+            ├── front_app.sh
+            ├── icon_map_fn.sh
+            ├── ram.sh
+            └── volume.sh
 ```
 
 ---
@@ -56,6 +83,7 @@ dotfiles/
 | `install_scripts/check_homebrew.sh` | Verifies Homebrew is installed |
 | `install_scripts/aerospace/install.sh` | Installs AeroSpace + Borders, sets up config, starts app |
 | `install_scripts/gh-dash/install.sh` | Installs gh + delta + gh-dash, handles GitHub auth, sets up config |
+| `install_scripts/sketchybar/install.sh` | Installs SketchyBar + dependencies + fonts, sets up config, starts bar |
 
 ---
 
@@ -74,6 +102,17 @@ dotfiles/
 | File | Purpose |
 |---|---|
 | `.config/gh-dash/config.yml` | gh-dash dashboard configuration |
+
+---
+
+## SketchyBar Config Files
+
+| File | Purpose |
+|---|---|
+| `.config/sketchybar/sketchybarrc` | Main SketchyBar configuration entry point |
+| `.config/sketchybar/scripts/colors.sh` | Shared colour variables used across all items |
+| `.config/sketchybar/items/*.sh` | Bar item definitions (layout, icons, update frequency) |
+| `.config/sketchybar/plugins/*.sh` | Event-driven scripts that power each bar item |
 
 ---
 
@@ -138,6 +177,34 @@ Prompts for `gh auth login` during setup.
 
 ---
 
+## SketchyBar
+
+Installs:
+
+- [SketchyBar](https://github.com/FelixKratz/SketchyBar) — highly customisable macOS menu bar replacement
+- [jq](https://stedolan.github.io/jq/) — JSON processor used by bar plugins
+- Hack Nerd Font — icon-rich monospace font
+- SF Pro — Apple system font
+- SF Symbols — Apple icon set
+- SketchyBar App Font — app-specific icons
+
+Bar items included:
+
+| Item | Description |
+|---|---|
+| `aerospace` | Active AeroSpace workspace indicator |
+| `front_app` | Currently focused application |
+| `calendar` | Date and time |
+| `battery` | Battery level and charging status |
+| `volume` | System volume |
+| `cpu` | CPU usage |
+| `ram` | RAM usage |
+| `display_change` | Reacts to display configuration changes |
+
+After installation, optionally starts SketchyBar immediately via `brew services start sketchybar`.
+
+---
+
 # Symlink vs Copy Mode
 
 During each configuration install you can choose:
@@ -147,8 +214,9 @@ During each configuration install you can choose:
 Creates a symlink pointing `~/.config/<name>` directly to the repo:
 
 ```text
-~/.config/aerospace  →  dotfiles/.config/aerospace
-~/.config/gh-dash    →  dotfiles/.config/gh-dash
+~/.config/aerospace   →  dotfiles/.config/aerospace
+~/.config/gh-dash     →  dotfiles/.config/gh-dash
+~/.config/sketchybar  →  dotfiles/.config/sketchybar
 ```
 
 Benefits:
