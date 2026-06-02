@@ -1,7 +1,9 @@
 #!/bin/bash
 
-export WHITE=0xffffffff
+# Catppuccin Mocha
 
-export BAR_COLOR=0xff001f30
-export ITEM_BG_COLOR=0xff003547
-export ACCENT_COLOR=0xff2cf9ed
+export WHITE=0xffcdd6f4
+
+export BAR_COLOR=0xff1e1e2e
+export ITEM_BG_COLOR=0xff313244
+export ACCENT_COLOR=0xff89b4fa
