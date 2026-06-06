@@ -38,6 +38,10 @@ else
         sketchybar --set "$NAME" \
             background.drawing=on \
             background.color=$ITEM_BG_COLOR
+    else
+        sketchybar --set "$NAME" \
+            background.drawing=on \
+            background.color=0x15ffffff
     fi
 
     ICON_STRIP=""
