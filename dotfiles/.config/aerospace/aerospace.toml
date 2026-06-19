@@ -80,6 +80,7 @@ alt-d = 'workspace D'
 alt-p = 'workspace P'
 alt-v = 'workspace V'
 alt-b = 'workspace B'
+alt-o = 'workspace O'
 # alt-c = 'workspace C'
 # alt-e = 'workspace E'
 # alt-f = 'workspace F'
@@ -87,7 +88,6 @@ alt-b = 'workspace B'
 # alt-i = 'workspace I'
 # alt-m = 'workspace M'
 # alt-n = 'workspace N'
-# alt-o = 'workspace O'
 # alt-q = 'workspace Q'
 # alt-r = 'workspace R'
 # alt-s = 'workspace S'
@@ -110,6 +110,7 @@ alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 # alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = ['move-node-to-workspace B', 'workspace B']
+alt-shift-o = ['move-node-to-workspace O', 'workspace O']
 # alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-d = 'move-node-to-workspace D'
 # alt-shift-e = 'move-node-to-workspace E'
@@ -190,9 +191,14 @@ run = "move-node-to-workspace 3"
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
 run = "move-node-to-workspace 3"
+
 [[on-window-detected]]
 if.app-id = 'com.electron.dockerdesktop'
 run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace O"
 
 # this makes the workspaces open in the secondary monitor
 [workspace-to-monitor-force-assignment]
@@ -204,3 +210,4 @@ run = "move-node-to-workspace D"
 V = ['secondary', 'main']
 B = ['secondary', 'main']
 P = ['secondary', 'main']
+O = ['secondary', 'main']
