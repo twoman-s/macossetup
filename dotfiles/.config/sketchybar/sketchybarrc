@@ -19,6 +19,7 @@ source "$CONFIG_DIR/scripts/colors.sh"
 sketchybar --bar position=top\
                  height=40\
                  sticky=off\
+                 notch_width=200 \
                  padding_left=10\
                  padding_right=10\
                  blur_radius=30
@@ -55,6 +56,7 @@ sketchybar --default "${default[@]}"
 source $ITEM_DIR/aerospace.sh
 source $ITEM_DIR/front_app.sh
 source $ITEM_DIR/display_change.sh
+source $ITEM_DIR/network_speed.sh
 
 # --- right side items---
 source $ITEM_DIR/calendar.sh
